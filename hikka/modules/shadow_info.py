@@ -15,10 +15,10 @@ import platform as lib_platform
 import getpass
 
 @loader.tds
-class HerokuInfoMod(loader.Module):
+class ShadowInfoMod(loader.Module):
     """Show userbot info"""
 
-    strings = {"name": "HerokuInfo"}
+    strings = {"name": "ShadowInfo"}
 
     def __init__(self):
         self.config = loader.ModuleConfig(
@@ -29,7 +29,7 @@ class HerokuInfoMod(loader.Module):
 
             loader.ConfigValue(
                 "banner_url",
-                "https://imgur.com/a/7LBPJiq.png",
+                "https://imgur.com/a/htgY2vL",
                 lambda: self.strings("_cfg_banner"),
             ),
             
@@ -88,7 +88,7 @@ class HerokuInfoMod(loader.Module):
             platform = platform.replace(emoji, icon)
         return (
             (
-                "<b>🪐 Heroku</b>\n"
+                "<b>👻 Shadow</b>\n"
                 if self.config["show_heroku"]
                 else ""
             )
@@ -157,7 +157,7 @@ class HerokuInfoMod(loader.Module):
             if oxo.status_code == 200:
                 return oxo.text.strip()
             else:
-                return "https://imgur.com/a/7LBPJiq.png"
+                return "https://imgur.com/a/htgY2vL"
 
         except Exception:
             return "https://imgur.com/H56KRbM"
@@ -170,7 +170,7 @@ class HerokuInfoMod(loader.Module):
         photos = await self._client.get_profile_photos('me')
         if photos:
             return await self.upload_pp_to_oxo(photos[0])
-        return "https://imgur.com/a/7LBPJiq.png"
+        return "https://imgur.com/a/htgY2vL"
 
     async def info(self, _: InlineQuery) -> dict:
         """Send userbot info"""
@@ -207,7 +207,7 @@ class HerokuInfoMod(loader.Module):
         )
 
     @loader.command()
-    async def herokuinfo(self, message: Message):
+    async def shadowinfo(self, message: Message):
         await utils.answer(message, self.strings("desc"))
 
     @loader.command()
