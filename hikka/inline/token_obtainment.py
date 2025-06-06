@@ -1,4 +1,4 @@
-# ©️ Dan Gazizullin, 2021-2023
+# © Dan Gazizullin, 2021-2023
 # This file is a part of Hikka Userbot
 # 🌐 https://github.com/hikariatama/Hikka
 # You can redistribute it and/or modify it under the terms of the GNU AGPLv3
@@ -15,7 +15,7 @@ from .. import utils
 from .._internal import fw_protect
 from .types import InlineUnit
 
-logger = logging.getLogger(__name__)
+logger = logging.getLogger(_name_)
 
 
 class TokenObtainment(InlineUnit):
@@ -46,13 +46,13 @@ class TokenObtainment(InlineUnit):
                     pass
                 else:
                     uid = utils.rand(6)
-                    username = f"@heroku_{uid}_bot"
+                    username = f"@shadow_{uid}_bot"
             else:
                 uid = utils.rand(6)
-                username = f"@heroku_{uid}_bot"
+                username = f"@shadow_{uid}_bot"
 
             for msg in [
-                f"🪐 Heroku userbot"[:64],
+                f"🪐 Shadow userbot 🚀"[:64],
                 username,
                 "/setuserpic",
                 username,
@@ -72,7 +72,7 @@ class TokenObtainment(InlineUnit):
                 await fw_protect()
                 from .. import main
 
-                m = await conv.send_file(main.BASE_PATH / "assets" / "heroku-ava.png")
+                m = await conv.send_file(main.BASE_PATH / "assets" / "shadow-ava.png")
                 r = await conv.get_response()
 
                 logger.debug(">> <Photo>")
@@ -102,13 +102,13 @@ class TokenObtainment(InlineUnit):
 
         logger.info("Bot token not found in db, attempting search in BotFather")
 
-        if not self._db.get(__name__, "no_mute", False):
+        if not self.db.get(name_, "no_mute", False):
             await utils.dnd(
                 self._client,
                 await self._client.get_entity("@BotFather"),
                 True,
             )
-            self._db.set(__name__, "no_mute", True)
+            self.db.set(name_, "no_mute", True)
 
         async with self._client.conversation("@BotFather", exclusive=False) as conv:
             try:
@@ -147,7 +147,7 @@ class TokenObtainment(InlineUnit):
                         "hikka.inline",
                         "custom_bot",
                         False,
-                    ) and not re.search(r"@heroku_[0-9a-zA-Z]{6}_bot", button.text):
+                    ) and not re.search(r"@shadow_[0-9a-zA-Z]{6}_bot", button.text):
                         continue
 
                     await fw_protect()
@@ -197,7 +197,7 @@ class TokenObtainment(InlineUnit):
                     for msg in [
                         "/setinline",
                         button.text,
-                        "user@heroku:~$",
+                        "user@shadow:~$",
                         "/setinlinefeedback",
                         button.text,
                         "Enabled",
@@ -221,7 +221,7 @@ class TokenObtainment(InlineUnit):
                         from .. import main
 
                         m = await conv.send_file(
-                            main.BASE_PATH / "assets" / "heroku-ava.png"
+                            main.BASE_PATH / "assets" / "shadow-ava.png"
                         )
                         r = await conv.get_response()
 
