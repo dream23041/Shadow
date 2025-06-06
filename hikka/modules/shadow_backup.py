@@ -65,7 +65,7 @@ class ShadowBackupMod(loader.Module):
             "📼 Your database backups will appear here",
             silent=True,
             archive=True,
-            avatar="https://raw.githubusercontent.com/coddrago/Heroku/refs/heads/master/assets/heroku-backups.png",
+            avatar="https://raw.githubusercontent.com/Viciu3/Shadow/refs/heads/master/assets/shadow-backups.png",
             _folder="shadow",
             invite_bot=True,
         )
