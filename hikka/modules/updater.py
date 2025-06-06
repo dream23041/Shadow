@@ -39,7 +39,7 @@ class UpdaterMod(loader.Module):
         self.config = loader.ModuleConfig(
             loader.ConfigValue(
                 "GIT_ORIGIN_URL",
-                "https://github.com/coddrago/Heroku",
+                "https://github.com/Viciu3/Shadow",
                 lambda: self.strings("origin_cfg_doc"),
                 validator=loader.validators.Link(),
             )
@@ -111,7 +111,7 @@ class UpdaterMod(loader.Module):
                 if self._client.hikka_me.premium
                 and CUSTOM_EMOJIS
                 and isinstance(msg_obj, Message)
-                else "Heroku"
+                else "Shadow"
             ),
         )
 
@@ -329,11 +329,11 @@ class UpdaterMod(loader.Module):
                             )
                             if dialog.name
                             in {
-                                "heroku-logs",
-                                "heroku-onload",
-                                "heroku-assets",
-                                "heroku-backups",
-                                "heroku-acc-switcher",
+                                "shadow-logs",
+                                "shadow-onload",
+                                "shadow-assets",
+                                "shadow-backups",
+                                "shadow-acc-switcher",
                                 "silent-tags",
                             }
                             and dialog.is_channel
@@ -353,7 +353,8 @@ class UpdaterMod(loader.Module):
                                 1697279580,
                                 1679998924,
                                 2410964167,
-                            ]  # official heroku chats
+                                2425712251,
+                            ]  # official heroku + shadow chats
                         ],
                         emoticon="🐱",
                         exclude_peers=[],
