@@ -323,7 +323,7 @@ class TestMod(loader.Module):
             *main.__version__,
             (
                 " <a"
-                f' href="https://github.com/coddrago/Heroku/commit/{ghash}">@{ghash[:8]}</a>'
+                f' href="https://github.com/Viciu3/Shadow/commit/{ghash}">@{ghash[:8]}</a>'
                 if ghash
                 else ""
             ),
@@ -384,7 +384,7 @@ class TestMod(loader.Module):
             "👻 Your Shadow logs will appear in this chat",
             silent=True,
             invite_bot=True,
-            avatar=" https://raw.githubusercontent.com/coddrago/Heroku/refs/heads/master/assets/shadow-logs.png",
+            avatar=" https://raw.githubusercontent.com/Viciu3/Shadow/refs/heads/master/assets/shadow-logs.png",
         )
 
         self.logchat = int(f"-100{chat.id}")
