@@ -24,16 +24,16 @@ logger = logging.getLogger(__name__)
 
 
 @loader.tds
-class HerokuBackupMod(loader.Module):
+class ShadowBackupMod(loader.Module):
     """Handles database and modules backups"""
 
-    strings = {"name": "HerokuBackup"}
+    strings = {"name": "ShadowBackup"}
 
     async def client_ready(self):
         if not self.get("period"):
             await self.inline.bot.send_photo(
                 self.tg_id,
-                photo="https://imgur.com/a/wfiqkDa.png",
+                photo="https://imgur.com/a/XrkGwtg",
                 caption=self.strings("period"),
                 reply_markup=self.inline.generate_markup(
                     utils.chunks(
@@ -61,12 +61,12 @@ class HerokuBackupMod(loader.Module):
 
         self._backup_channel, _ = await utils.asset_channel(
             self._client,
-            "heroku-backups",
+            "shadow-backups",
             "📼 Your database backups will appear here",
             silent=True,
             archive=True,
             avatar="https://raw.githubusercontent.com/coddrago/Heroku/refs/heads/master/assets/heroku-backups.png",
-            _folder="heroku",
+            _folder="shadow",
             invite_bot=True,
         )
 
@@ -147,7 +147,7 @@ class HerokuBackupMod(loader.Module):
         except loader.StopLoop:
             raise
         except Exception:
-            logger.exception("HerokuBackup failed")
+            logger.exception("ShadowBackup failed")
             await asyncio.sleep(60)
 
     @loader.callback_handler()
