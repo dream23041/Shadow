@@ -37,10 +37,10 @@ ALL_INVOKES = [
 
 
 @loader.tds
-class HerokuSettingsMod(loader.Module):
+class ShadowSettingsMod(loader.Module):
     """Advanced settings for Heroku Userbot"""
 
-    strings = {"name": "HerokuSettings"}
+    strings = {"name": "ShadowSettings"}
 
     def get_watchers(self) -> tuple:
         return [
@@ -77,18 +77,18 @@ class HerokuSettingsMod(loader.Module):
             if (
                 dialog.name
                 in {
-                    "heroku-logs",
-                    "heroku-onload",
-                    "heroku-assets",
-                    "heroku-backups",
-                    "heroku-acc-switcher",
+                    "shadow-logs",
+                    "shadow-onload",
+                    "shadow-assets",
+                    "shadow-backups",
+                    "shadow-acc-switcher",
                     "silent-tags",
                 }
                 and dialog.is_channel
                 and (
                     dialog.entity.participants_count == 1
                     or dialog.entity.participants_count == 2
-                    and dialog.name in {"heroku-logs", "silent-tags"}
+                    and dialog.name in {"shadow-logs", "silent-tags"}
                 )
                 or (
                     self._client.loader.inline.init_complete
@@ -740,7 +740,7 @@ class HerokuSettingsMod(loader.Module):
                     "text": self.strings("web_btn"),
                     "url": await main.hikka.web.get_url(proxy_pass=False),
                 },
-                photo="https://imgur.com/a/yOoHsa2.png",
+                photo="https://imgur.com/a/genhZ0T",
             )
             return
 
@@ -761,7 +761,7 @@ class HerokuSettingsMod(loader.Module):
                         },
                         {"text": self.strings("btn_no"), "action": "close"},
                     ],
-                    photo="https://imgur.com/a/NumfPGa.png",
+                    photo="https://imgur.com/a/2YyzzsK",
                 ):
                     raise Exception
             except Exception:
@@ -795,7 +795,7 @@ class HerokuSettingsMod(loader.Module):
                 self.strings("opening_tunnel"),
                 reply_markup={"text": "🕔 Wait...", "data": "empty"},
                 photo=(
-                    "https://imgur.com/a/MQJGI0w.png"
+                    "https://imgur.com/a/cE9WuHo"
                 ),
             )
         else:
@@ -804,7 +804,7 @@ class HerokuSettingsMod(loader.Module):
                 message=message,
                 reply_markup={"text": "🕔 Wait...", "data": "empty"},
                 photo=(
-                    "https://imgur.com/a/MQJGI0w.png"
+                    "https://imgur.com/a/cE9WuHo"
                 ),
             )
 
@@ -813,7 +813,7 @@ class HerokuSettingsMod(loader.Module):
         await form.edit(
             self.strings("tunnel_opened"),
             reply_markup={"text": self.strings("web_btn"), "url": url},
-            photo="https://imgur.com/a/lgmzCpj.png",
+            photo="https://imgur.com/a/Oj1eKrs",
         )
 
     def _get_all_IDM(self, module: str):
