@@ -39,7 +39,7 @@ class InlineStuff(loader.Module):
 
         await message.delete()
 
-        m = await message.respond("🪐", reply_to=utils.get_topic(message))
+        m = await message.respond("👻", reply_to=utils.get_topic(message))
 
         await self.inline.gallery(
             message=m,
@@ -114,6 +114,6 @@ class InlineStuff(loader.Module):
             return
 
         await message.answer_photo(
-            "https://imgur.com/a/0gmlFYI.png",
+            "https://imgur.com/a/banner-htgY2vL",
             caption=self.strings("this_is_hikka"),
         )
